@@ -18,18 +18,10 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/api/:time", function(req, res){
-   let time = req.params.time
-   let timestamp;
-   if (!isNaN(time)) {
-     timestamp = new Date(parseInt(time, 10));
-   } else {
-     timestamp = new Date(time);
-   }
- 
-   res.json({ unix : timestamp.getTime(), 
-    utc: timestamp.toUTCString()
-   })
+
+// your first API endpoint... 
+app.get("/api/hello", function (req, res) {
+  res.json({greeting: 'hello API'});
 });
 
 
